@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainController">
+	<top>
+		<MenuBar fx:id="topMenu" BorderPane.alignment="CENTER">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem fx:id="addusers" mnemonicParsing="false" onAction="#addusers" text="Add User" />
+						<MenuItem mnemonicParsing="false" onAction="#addMem" text="Add Member" />
+						<SeparatorMenuItem mnemonicParsing="false" />
+						<MenuItem mnemonicParsing="false" onAction="#setting" text="Settings" />
+						<MenuItem mnemonicParsing="false" onAction="#logout" text="Log Out" />
+						<MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="About">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#aboutus" text="About Us.." />
+						<MenuItem mnemonicParsing="false" onAction="#aboutApp" text="About App..">
+							<graphic>
+								<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../res/logo.png" />
+									</image>
+									<cursor>
+										<Cursor fx:constant="CROSSHAIR" />
+									</cursor>
+								</ImageView>
+							</graphic>
+						</MenuItem>
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+	</top>
+	<center>
+		<ScrollPane pannable="true">
+			<content>
+				<TabPane accessibleRole="PARENT">
+					<tabs>
+						<Tab closable="false" text="Library Books">
+                     <content>
+                        <SplitPane dividerPositions="0.31875" prefHeight="766.0" prefWidth="1600.0">
+                           <items>
+                              <AnchorPane maxWidth="265.0">
+                                 <children>
+                                    <TitledPane alignment="CENTER" collapsible="false" contentDisplay="CENTER" text="ADD BOOKS" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <AnchorPane>
+                                             <children>
+                                                <VBox layoutX="7.0" layoutY="6.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <padding>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <TextField fx:id="isbnTextField" promptText="ISBN">
+                                                         <tooltip>
+                                                            <Tooltip text="ISBN" />
+                                                         </tooltip>
+                                                      </TextField>
+                                                      <TextField fx:id="titleTextField" promptText="TITLE">
+                                                         <tooltip>
+                                                            <Tooltip text="TITLE" />
+                                                         </tooltip>
+                                                      </TextField>
+                                                      <TextField fx:id="authorTextField" promptText="AUTHOR">
+                                                         <tooltip>
+                                                            <Tooltip text="AUTHOR" />
+                                                         </tooltip>
+                                                      </TextField>
+                                                      <TextField fx:id="publisherTextField" promptText="PUBLISHER">
+                                                         <tooltip>
+                                                            <Tooltip text="PUBLISHER" />
+                                                         </tooltip>
+                                                      </TextField>
+                                                      <TextField fx:id="quantityTextField" onAction="#addBook" promptText="QUANTITY">
+                                                         <tooltip>
+                                                            <Tooltip text="QUANTITY" />
+                                                         </tooltip>
+                                                      </TextField>
+                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addBook" style="-fx-background-color: #2b5add;" text="ADD" textFill="WHITE" />
+                                                      <TitledPane animated="false" collapsible="false" text="SEARCH">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="209.0">
+                                                               <children>
+                                                                  <TextField fx:id="searchTextField" layoutX="24.0" layoutY="12.0" promptText="ISBN, TITLE, AUTHOR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <padding>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </padding>
+                                                         <VBox.margin>
+                                                            <Insets top="50.0" />
+                                                         </VBox.margin>
+                                                      </TitledPane>
+                                                      <Button mnemonicParsing="false" onAction="#bookViewAll" style="-fx-background-color: #2b5add;" text="Show All Books" textFill="WHITE">
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button layoutX="20.0" layoutY="416.0" mnemonicParsing="false" onAction="#addAuthPub" style="-fx-background-color: #2b5add;" text="ADD AUTHOR / PULISHER" textFill="WHITE">
+                                                         <VBox.margin>
+                                                            <Insets top="50.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button layoutX="20.0" layoutY="501.0" mnemonicParsing="false" onAction="#viewAuthPub" style="-fx-background-color: #2b5add;" text="VIEW AUTHOR / PULISHER" textFill="WHITE">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </TitledPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <TableView fx:id="libraryTable" layoutX="1.0" onMouseEntered="#BorrowBookView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="snColumn" prefWidth="60.0" style="-fx-alignment: CENTER;" text="S/N" />
+                                          <TableColumn fx:id="isbnColumn" prefWidth="126.0" style="-fx-alignment: CENTER;" text="ISBN" />
+                                          <TableColumn fx:id="titleColumn" prefWidth="138.0" style="-fx-alignment: CENTER;" text="TITLE" />
+                                          <TableColumn fx:id="authorColumn" prefWidth="173.0" style="-fx-alignment: CENTER;" text="AUTHOR" />
+                                          <TableColumn fx:id="publisherColumn" minWidth="9.0" prefWidth="170.0" style="-fx-alignment: CENTER;" text="PUBLISHER" />
+                                          <TableColumn fx:id="quantityColumn" prefWidth="88.0" style="-fx-alignment: CENTER;" text="QUANTITY" />
+                                          <TableColumn fx:id="issueColumn" prefWidth="113.0" style="-fx-alignment: CENTER;" text="ISSUE" />
+                                          <TableColumn fx:id="deleteColumn" prefWidth="113.0" style="-fx-alignment: CENTER;" text="DELETE" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </content>
+						</Tab>
+						<Tab closable="false" text="Borrowed Books">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0">
+									<children>
+										<BorderPane layoutX="14.0" layoutY="148.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+												<TableView fx:id="borrowerTable" onMouseEntered="#bookView" BorderPane.alignment="CENTER">
+													<columns>
+                                          <TableColumn fx:id="cid" style="-fx-alignment: CENTER;" text="ID" />
+														<TableColumn fx:id="bname" prefWidth="136.0" style="-fx-alignment: CENTER;" text="Borrower's Name" />
+														<TableColumn fx:id="bnumber" prefWidth="129.0" style="-fx-alignment: CENTER;" text="Phone Number" />
+														<TableColumn fx:id="isbn" prefWidth="100.0" style="-fx-alignment: CENTER;" text="ISBN" />
+														<TableColumn fx:id="bbook" prefWidth="487.0" style="-fx-alignment: CENTER;" text="Book Borrowed" />
+														<TableColumn fx:id="bdate" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Borrowed Date" />
+														<TableColumn fx:id="bdue" prefWidth="122.0" style="-fx-alignment: CENTER;" text="Due Date" />
+														<TableColumn fx:id="returned" prefWidth="129.0" style="-fx-alignment: CENTER;" text="Return" />
+													</columns>
+												</TableView>
+                                 </center>
+                                 <top>
+                                    <SplitPane dividerPositions="0.5" BorderPane.alignment="CENTER">
+                                       <items>
+                                          <Button mnemonicParsing="false" onAction="#BorrowBookViewAll" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #2b5add;" text="Show All Books" textFill="WHITE" />
+                                          <TextField fx:id="borrowedSearch" promptText="Search for ISBN, TITLE, AUTHOR, Borrower" />
+                                       </items>
+                                    </SplitPane>
+                                 </top>
+										</BorderPane>
+									</children>
+								</AnchorPane>
+							</content>
+						</Tab>
+						<Tab closable="false" text="Due Books">
+							<content>
+								<ListView fx:id="duebooksListView" onMouseEntered="#updateView" />
+							</content>
+						</Tab>
+                  <Tab closable="false" text="Members">
+                     <content>
+                        <ListView fx:id="membersListView" onMouseEntered="#updateView" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="user_tab" closable="false" text="Users">
+                     <content>
+                        <ListView fx:id="UsersListView" onMouseEntered="#updateView" />
+                     </content>
+                  </Tab>
+					</tabs>
+               <opaqueInsets>
+                  <Insets right="1.0" />
+               </opaqueInsets>
+				</TabPane>
+			</content>
+		</ScrollPane>
+	</center>
+</BorderPane>

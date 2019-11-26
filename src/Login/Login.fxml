@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.LoginController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="About">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#aboutus" text="About Us.." />
+                  <MenuItem mnemonicParsing="false" onAction="#aboutApp" text="About App..">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/logo.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="CROSSHAIR" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane cache="true" cacheHint="SPEED" centerShape="false" minHeight="800.0" minWidth="1300.0" scaleShape="false" style="-fx-background-image: url(/res/back.jpg); -fx-background-size: STRETCH;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="236.0" layoutY="131.0">
+               <children>
+                  <ImageView cache="true" cacheHint="QUALITY" fitHeight="71.0" fitWidth="515.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../res/LIB.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="31.0" fitWidth="160.0" layoutX="218.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/login.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="38.0" fitWidth="29.0" layoutX="140.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/user.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="38.0" fitWidth="29.0" layoutX="140.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/password.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="username" layoutX="181.0" layoutY="189.0" onAction="#initLogin" prefHeight="26.0" prefWidth="208.0" promptText="  Username" />
+                  <PasswordField fx:id="password" layoutX="181.0" layoutY="233.0" onAction="#initLogin" prefHeight="25.0" prefWidth="208.0" promptText="  Password" />
+                  <Text fx:id="errormsg" fill="RED" layoutX="181.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username Or Password Error.." textAlignment="CENTER" visible="false" wrappingWidth="208.0" />
+                  <Button layoutX="247.0" layoutY="292.0" mnemonicParsing="false" onAction="#initLogin" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #2b5add;" text="Login" textFill="WHITE" />
+                  <ImageView fitHeight="24.0" fitWidth="101.0" layoutX="405.0" layoutY="74.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../res/doneBy.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </padding>
+            </AnchorPane>
+            <ImageView fx:id="loadImg" fitHeight="23.0" fitWidth="24.0" layoutX="134.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/load.gif" />
+               </image>
+            </ImageView>
+            <Text fx:id="loadText" layoutX="157.0" layoutY="584.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Handling Database..">
+               <font>
+                  <Font name="Arial Italic" size="13.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

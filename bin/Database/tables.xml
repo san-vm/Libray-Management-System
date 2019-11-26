@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<table>
+	<table-entry name="CONFIG" col-data="DUEDAYS int"/>
+
+	<table-entry name="LOGINS" col-data="USERNAME varchar(30) PRIMARY KEY, PASSWORD varchar(20) not null"/>
+
+	<table-entry name="REG_USER" col-data="LID varchar(30) REFERENCES LOGINS(USERNAME), NAME varchar(30), EMAIL varchar(30), PH BIGINT"/>
+
+	<table-entry name="AUTH" col-data="NAME varchar(30) PRIMARY KEY, EMAIL varchar(30), PH BIGINT"/>
+
+	<table-entry name="PUBLISHER" col-data="NAME varchar(30) PRIMARY KEY, EMAIL varchar(30), PH BIGINT"/>
+
+	<table-entry name="BOOK" col-data="ISBN BIGINT PRIMARY KEY, TITLE varchar(30), AUTHOR varchar(30) REFERENCES AUTH(NAME), PUBLISHER varchar(30) REFERENCES PUBLISHER(NAME), QUANTITY int"/>
+	
+	<table-entry name="MEMBER" col-data="CID int PRIMARY KEY, NAME varchar(30), EMAIL varchar(30), PH BIGINT"/>
+	
+	<table-entry name="BORROWED" col-data="BID BIGINT REFERENCES book(ISBN) ON DELETE CASCADE, CID int REFERENCES MEMBER(CID), SINCE date, UNTIL date, RETURNED boolean default false"/>
+</table>
